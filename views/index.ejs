@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Task Tracker</h1>
+        <form action="/add" method="POST" class="task-form">
+            <input type="text" name="task" placeholder="Enter a new task" required>
+            <button type="submit">Add Task</button>
+        </form>
+        <ul class="task-list">
+            <% tasks.forEach((task, index) => { %>
+                <li>
+                    <span><%= task %></span>
+                    <form action="/delete/<%= index %>" method="POST" class="delete-form">
+                        <button type="submit">✖</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
